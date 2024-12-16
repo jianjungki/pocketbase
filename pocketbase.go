@@ -9,10 +9,10 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/AlperRehaYAZGAN/postgresbase/cmd"
+	"github.com/AlperRehaYAZGAN/postgresbase/core"
+	"github.com/AlperRehaYAZGAN/postgresbase/tools/list"
 	"github.com/fatih/color"
-	"github.com/pocketbase/pocketbase/cmd"
-	"github.com/pocketbase/pocketbase/core"
-	"github.com/pocketbase/pocketbase/tools/list"
 	"github.com/spf13/cobra"
 
 	_ "github.com/pocketbase/pocketbase/migrations"

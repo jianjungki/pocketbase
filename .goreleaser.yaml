@@ -9,6 +9,22 @@ before:
     - go mod tidy
 
 builds:
+  # used only for tests
+  - id: build_cgo
+    main: ./examples/base
+    binary: pocketbase
+    ldflags:
+      - -s -w -X github.com/pocketbase/pocketbase.Version={{ .Version }}
+    env:
+      - CGO_ENABLED=1
+    goos:
+      - linux
+    goarch:
+      - amd64
+    tags:
+      - pq
+      - sqlite
+
   - id: build_noncgo
     main: ./examples/base
     binary: pocketbase
@@ -26,6 +42,9 @@ builds:
       - arm
       - s390x
       - ppc64le
+    tags:
+      - pq
+      - sqlite
     goarm:
       - 7
     ignore:
